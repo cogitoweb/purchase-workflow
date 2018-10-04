@@ -12,7 +12,7 @@ class SuppliedProductMixin(models.AbstractModel):
         string="Use only allowed products",
         help="If checked, only the products provided by this supplier "
              "will be shown.")
-    parent_id = partner_id = fields.Many2one(
+    partner_id = fields.Many2one(
         'res.partner')
 
     @api.onchange('partner_id')
