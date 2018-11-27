@@ -44,7 +44,8 @@ class PurchaseOrderLine(models.Model):
     @api.multi
     def _create_stock_moves(self, picking):
         res = super(PurchaseOrderLine, self)._create_stock_moves(picking)
-        for move, line in zip(res, self):
+        for move in res:
+            line = move.purchase_line_id
             default_picking_location_id = \
                 line.order_id._get_destination_location()
             default_picking_location = self.env['stock.location'].browse(
