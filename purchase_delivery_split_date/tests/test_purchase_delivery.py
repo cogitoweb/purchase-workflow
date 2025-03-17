@@ -52,33 +52,33 @@ class TestDeliverySingle(TransactionCase):
 
     def test_check_single_date(self):
         """Tests with single date."""
-        self.assertEquals(
+        self.assertEqual(
             len(self.po.picking_ids), 0,
             "There must not be pickings for the PO when draft")
         self.po.button_confirm()
-        self.assertEquals(
+        self.assertEqual(
             len(self.po.picking_ids), 1,
             "There must be 1 picking for the PO when confirmed")
-        self.assertEquals(
+        self.assertEqual(
             self.po.picking_ids[0].min_date[:10], self.date_sooner,
             "The picking must be planned at the expected date")
 
     def test_check_multiple_dates(self):
         """Tests changing the date of the first line."""
         self.po.order_line[0].date_planned = self.date_later
-        self.assertEquals(
+        self.assertEqual(
             len(self.po.picking_ids), 0,
             "There must not be pickings for the PO when draft")
         self.po.button_confirm()
-        self.assertEquals(
+        self.assertEqual(
             len(self.po.picking_ids), 2,
             "There must be 2 pickings for the PO when confirmed. %s found"
             % len(self.po.picking_ids))
 
         sorted_pickings = sorted(self.po.picking_ids, key=lambda x: x.min_date)
-        self.assertEquals(
+        self.assertEqual(
             sorted_pickings[0].min_date[:10], self.date_sooner,
             "The first picking must be planned at the soonest date")
-        self.assertEquals(
+        self.assertEqual(
             sorted_pickings[1].min_date[:10], self.date_later,
             "The second picking must be planned at the latest date")

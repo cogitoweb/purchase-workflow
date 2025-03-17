@@ -138,7 +138,7 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
         onchanges_dict = {
             'onchange_product_id': self._get_purchase_line_onchange_fields(),
         }
-        for onchange_method, changed_fields in onchanges_dict.items():
+        for onchange_method, changed_fields in list(onchanges_dict.items()):
             if any(f not in vals for f in changed_fields):
                 obj = cls.new(vals)
                 getattr(obj, onchange_method)()

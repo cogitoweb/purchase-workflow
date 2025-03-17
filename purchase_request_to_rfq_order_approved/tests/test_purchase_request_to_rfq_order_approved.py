@@ -69,7 +69,7 @@ class TestPurchaseRequestToRfqOrderApproved(common.TransactionCase):
         purchase = purchase_request_line1.purchase_lines[0].order_id
         purchase.button_confirm()
 
-        self.assertEquals(purchase_request_line1.purchase_state, 'approved',
+        self.assertEqual(purchase_request_line1.purchase_state, 'approved',
                           'Status of the request line should be approved')
 
         wiz_id = self.wiz.with_context(
@@ -81,8 +81,8 @@ class TestPurchaseRequestToRfqOrderApproved(common.TransactionCase):
         wiz_id.make_purchase_order()
         purchase = purchase_request_line1.purchase_lines[0].order_id
         purchase.button_confirm()
-        self.assertEquals(purchase_request_line1.purchase_state, 'approved',
+        self.assertEqual(purchase_request_line1.purchase_state, 'approved',
                           'Status of the request line should be approved')
         purchase.button_release()
-        self.assertEquals(purchase_request_line1.purchase_state, 'purchase',
+        self.assertEqual(purchase_request_line1.purchase_state, 'purchase',
                           'Status of the request line should be purchase')

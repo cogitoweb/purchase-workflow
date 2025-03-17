@@ -6,11 +6,11 @@
 {
     'name': 'Purchase landed costs - Alternative option',
     'version': '10.0.2.0.0',
-    "author": u"OdooMRP team,"
-              u"AvanzOSC,"
-              u"Tecnativa,"
-              u"Joaquín Gutierrez,"
-              u"Odoo Community Association (OCA)",
+    "author": "OdooMRP team,"
+              "AvanzOSC,"
+              "Tecnativa,"
+              "Joaquín Gutierrez,"
+              "Odoo Community Association (OCA)",
     'category': 'Purchase Management',
     'website': 'https://github.com/OCA/purchase-workflow',
     'summary': 'Purchase cost distribution',

@@ -35,7 +35,7 @@ class PurchaseOrderLine(models.Model):
         other modules can store more data based on new keys."""
         vals = {'move_lines': []}
         for key_element in key:
-            if 'date_planned' in key_element.keys():
+            if 'date_planned' in list(key_element.keys()):
                 vals['date'] = key_element['date_planned']
         return vals
 
@@ -53,7 +53,7 @@ class PurchaseOrderLine(models.Model):
         # If a picking is provided, use it for the first group only
         if picking:
             first_picking = picking
-            key, lines = date_groups.next()
+            key, lines = next(date_groups)
             po_lines = self.env['purchase.order.line']
             for line in list(lines):
                 po_lines += line
@@ -86,6 +86,6 @@ class StockPicking(models.Model):
         can store more data based on new keys."""
         for rec in self:
             for key_element in key:
-                if 'date_planned' in key_element.keys():
+                if 'date_planned' in list(key_element.keys()):
                     rec.date = key_element['date_planned']
         return False

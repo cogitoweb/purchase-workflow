@@ -56,7 +56,7 @@ class test_cancel_purchase_requisition(common.TransactionCase):
         self.purchase_ids = self.po_draft
         self.preq.tender_cancel()
         for po in self.preq.purchase_ids:
-            self.assertEquals(po.state, 'cancel')
+            self.assertEqual(po.state, 'cancel')
 
     def test_cancel_in_progress_purchase_requisition_with_1sent_rqf(self):
         """ We cancel a confirmed purchase requisition with 1 RFQ
@@ -67,7 +67,7 @@ class test_cancel_purchase_requisition(common.TransactionCase):
         self.preq.tender_cancel()
         self.assertEqual(self.preq.state, 'cancel')
         for po in self.preq.purchase_ids:
-            self.assertEquals(po.state, 'cancel')
+            self.assertEqual(po.state, 'cancel')
 
     def test_cancel_in_progress_purchase_requisition_with_2bids(self):
         """ We cancel a confirmed purchase requisition with 2 RFQ
@@ -79,4 +79,4 @@ class test_cancel_purchase_requisition(common.TransactionCase):
         self.preq.tender_cancel()
         self.assertEqual(self.preq.state, 'cancel')
         for po in self.preq.purchase_ids:
-            self.assertEquals(po.state, 'cancel')
+            self.assertEqual(po.state, 'cancel')

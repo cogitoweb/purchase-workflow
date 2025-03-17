@@ -91,7 +91,7 @@ class TestPoAmountBlock(TransactionCase):
              ]
         )
 
-        self.assertEquals(
+        self.assertEqual(
             purchase1.approval_block_id,
             self.env.ref(
                 'purchase_minimum_amount.minimum_amount_block_reason'))
@@ -99,7 +99,7 @@ class TestPoAmountBlock(TransactionCase):
         # Release the PO by pressing the button and then confirming the order
         purchase1.sudo(self.user2_id).button_release_approval_block()
         purchase1.sudo(self.user1_id).button_confirm()
-        self.assertEquals(purchase1.state, 'purchase')
+        self.assertEqual(purchase1.state, 'purchase')
 
     def test_po_amount_block_2(self):
         "Test PO Block for Minimum Threshold Vendor Amount"
@@ -110,7 +110,7 @@ class TestPoAmountBlock(TransactionCase):
              (self.product2, 5),
              (self.product3, 8)])
 
-        self.assertEquals(
+        self.assertEqual(
             purchase1.approval_block_id,
             self.env.ref(
                 'purchase_minimum_amount.minimum_amount_block_reason'))
@@ -119,9 +119,9 @@ class TestPoAmountBlock(TransactionCase):
             if po_line.product_id == self.product1:
                 po_line.product_qty = 10
 
-        self.assertEquals(
+        self.assertEqual(
             purchase1.approval_block_id,
             self.env['purchase.approval.block.reason'])
 
         purchase1.sudo(self.user1_id).button_confirm()
-        self.assertEquals(purchase1.state, 'purchase')
+        self.assertEqual(purchase1.state, 'purchase')

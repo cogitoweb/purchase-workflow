@@ -21,7 +21,7 @@ class StockPicking(models.Model):
                      'have now been received in Incoming Shipment %s:') % (
             request.name, picking.name)
         message += '<ul>'
-        for line in request_dict.values():
+        for line in list(request_dict.values()):
             if line['request_line'].product_id:
                 display_name = line['request_line'].product_id.display_name
             else:

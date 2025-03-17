@@ -42,7 +42,7 @@ class TestProductSupplierinfoDiscount(TransactionCase):
 
     def test_001_purchase_order_partner_3_qty_1(self):
         self.po_line_1._onchange_quantity()
-        self.assertEquals(
+        self.assertEqual(
             self.po_line_1.discount, 10,
             "Incorrect discount for product 6 with partner 3 and qty 1: "
             "Should be 10%")
@@ -50,7 +50,7 @@ class TestProductSupplierinfoDiscount(TransactionCase):
     def test_002_purchase_order_partner_3_qty_10(self):
         self.po_line_1.write({'product_qty': 10})
         self.po_line_1._onchange_quantity()
-        self.assertEquals(
+        self.assertEqual(
             self.po_line_1.discount, 20.0,
             "Incorrect discount for product 6 with partner 3 and qty 10: "
             "Should be 20%")
@@ -61,7 +61,7 @@ class TestProductSupplierinfoDiscount(TransactionCase):
             'product_qty': 1,
         })
         self.po_line_1.onchange_product_id()
-        self.assertEquals(
+        self.assertEqual(
             self.po_line_1.discount, 0.0, "Incorrect discount for product "
             "6 with partner 1 and qty 1")
 
@@ -111,7 +111,7 @@ class TestProductSupplierinfoDiscount(TransactionCase):
         self.partner_1.default_supplierinfo_discount = 15
         supplierinfo.name = self.partner_1
         supplierinfo.onchange_name()
-        self.assertEquals(
+        self.assertEqual(
             supplierinfo.discount, 15, "Incorrect discount for supplierinfo "
             " after changing partner that has default discount defined.")
 

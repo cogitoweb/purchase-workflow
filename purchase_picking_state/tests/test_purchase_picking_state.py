@@ -11,7 +11,7 @@ class TestPurchasePickingState(TransactionCase):
             ('state', 'in', ['draft', 'sent', 'bid', 'cancel']),
         ])
         for purchase in draft_order_ids:
-            self.assertEquals(purchase.picking_state, 'draft')
+            self.assertEqual(purchase.picking_state, 'draft')
         confirmed_order_ids = self.env['purchase.order'].search([
             ('state', 'in', ['confirmed', 'approved', 'done']),
         ])
@@ -19,11 +19,11 @@ class TestPurchasePickingState(TransactionCase):
             pickings_state = set(
                 [picking.state for picking in purchase.picking_ids])
             if pickings_state == set(['cancel']):
-                self.assertEquals(purchase.picking_state, 'cancel')
+                self.assertEqual(purchase.picking_state, 'cancel')
             elif (pickings_state == set(['cancel', 'done']) or
                   pickings_state == set(['done'])):
-                self.assertEquals(purchase.picking_state, 'done')
+                self.assertEqual(purchase.picking_state, 'done')
             elif 'done' in pickings_state:
-                self.assertEquals(purchase.picking_state, 'partially_received')
+                self.assertEqual(purchase.picking_state, 'partially_received')
             else:
-                self.assertEquals(purchase.picking_state, 'not_received')
+                self.assertEqual(purchase.picking_state, 'not_received')

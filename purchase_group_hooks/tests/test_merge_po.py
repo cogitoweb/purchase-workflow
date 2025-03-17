@@ -23,12 +23,12 @@ class TestGroupOrders(BaseCase):
         """Group an empty list of orders as an empty dictionary."""
 
         grouped = self.po._group_orders([])
-        self.assertEquals(grouped, {})
+        self.assertEqual(grouped, {})
 
     def test_one_order(self):
         """A single order will not be grouped."""
         grouped = self.po._group_orders([self.order1])
-        self.assertEquals(grouped, {})
+        self.assertEqual(grouped, {})
 
     def test_two_similar_orders(self):
         """Two orders with the right conditions can be merged.
@@ -48,8 +48,8 @@ class TestGroupOrders(BaseCase):
         grouped = self.po._group_orders([self.order1, self.order2])
         expected_key = (('location_id', 2), ('partner_id', 1),
                         ('pricelist_id', 3))
-        self.assertEquals(grouped.keys(), [expected_key])
-        self.assertEquals(grouped[expected_key][1], [51, 52])
+        self.assertEqual(list(grouped.keys()), [expected_key])
+        self.assertEqual(grouped[expected_key][1], [51, 52])
 
     def test_merge_origin_and_notes(self):
         self.order1.origin = 'ORIGIN1'
@@ -72,5 +72,5 @@ class TestGroupOrders(BaseCase):
 
         merged_data = grouped[expected_key][0]
 
-        self.assertEquals(merged_data['origin'], 'ORIGIN1 ORIGIN2')
-        self.assertEquals(merged_data['notes'], 'Notes1\nNotes2')
+        self.assertEqual(merged_data['origin'], 'ORIGIN1 ORIGIN2')
+        self.assertEqual(merged_data['notes'], 'Notes1\nNotes2')

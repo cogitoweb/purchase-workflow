@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from __future__ import division
+
 from openerp import models, fields, api, exceptions
 import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
@@ -77,7 +77,7 @@ class PurchaseLineInvoice(models.TransientModel):
         ctx.update({'partial_quantity_lines': changed_lines})
         res = super(PurchaseLineInvoice, self.with_context(ctx))\
             .makeInvoices()
-        po_lines = self.env['purchase.order.line'].browse(changed_lines.keys())
+        po_lines = self.env['purchase.order.line'].browse(list(changed_lines.keys()))
         for po_line in po_lines:
             if po_line.invoiced_qty != po_line.product_qty:
                 po_line.invoiced = False

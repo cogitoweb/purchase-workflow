@@ -43,11 +43,11 @@ class TestPurchaseRequestToRfq(common.TransactionCase):
         self.assertTrue(
             len(purchase_request_line.purchase_lines),
             'Should have a purchase line')
-        self.assertEquals(
+        self.assertEqual(
             purchase_request_line.purchase_lines.product_id.id,
             purchase_request_line.product_id.id,
             'Should have same product')
-        self.assertEquals(
+        self.assertEqual(
             purchase_request_line.purchase_lines.state,
             purchase_request_line.purchase_state,
             'Should have same state')
@@ -98,19 +98,19 @@ class TestPurchaseRequestToRfq(common.TransactionCase):
         self.assertTrue(
             len(purchase_request_line.purchase_lines),
             'Should have a purchase line')
-        self.assertEquals(
+        self.assertEqual(
             purchase_request_line.purchase_lines.product_id.id,
             purchase_request_line.product_id.id,
             'Should have same product')
-        self.assertEquals(
+        self.assertEqual(
             purchase_request_line.purchase_lines.state,
             purchase_request_line.purchase_state,
             'Should have same state')
-        self.assertEquals(
+        self.assertEqual(
             purchase_request_line.purchase_lines.product_qty,
             5,
             'The PO line should have the minimum order quantity.')
-        self.assertEquals(
+        self.assertEqual(
             purchase_request_line,
             purchase_request_line.purchase_lines.purchase_request_lines,
             'The PO should cross-reference to the purchase request.')
@@ -162,9 +162,9 @@ class TestPurchaseRequestToRfq(common.TransactionCase):
             if item.line_id.id == purchase_request_line3.id:
                 item.onchange_product_id()
         wiz_id.make_purchase_order()
-        self.assertEquals(purchase_request_line1.purchased_qty, 2.0,
+        self.assertEqual(purchase_request_line1.purchased_qty, 2.0,
                           'Should be a quantity of 2')
-        self.assertEquals(purchase_request_line2.purchased_qty, 1.0,
+        self.assertEqual(purchase_request_line2.purchased_qty, 1.0,
                           'Should be a quantity of 1')
 
     def test_purchase_request_to_purchase_rfq_multiple_PO_purchaseUoM(self):
@@ -218,7 +218,7 @@ class TestPurchaseRequestToRfq(common.TransactionCase):
                 item.onchange_product_id()
         wiz_id.make_purchase_order()
         po_line = purchase_request_line1.purchase_lines[0]
-        self.assertEquals(po_line.product_qty, 2.0, 'Quantity should be 2')
-        self.assertEquals(po_line.product_uom,
+        self.assertEqual(po_line.product_qty, 2.0, 'Quantity should be 2')
+        self.assertEqual(po_line.product_uom,
                           self.env.ref('product.product_uom_dozen'),
                           'The purchase UoM should be Dozen(s).')

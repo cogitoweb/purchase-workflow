@@ -278,7 +278,7 @@ class PurchaseCostDistribution(models.Model):
                 (line.move_id,
                  line.standard_price_new - line.standard_price_old),
             )
-        for product, vals_list in d.items():
+        for product, vals_list in list(d.items()):
             self._product_price_update(product, vals_list)
             for vals in vals_list:
                 vals[0].product_price_update_after_done()
@@ -315,7 +315,7 @@ class PurchaseCostDistribution(models.Model):
                 (line.move_id,
                  line.standard_price_old - line.standard_price_new),
             )
-        for product, vals_list in d.items():
+        for product, vals_list in list(d.items()):
             self._product_price_update(product, vals_list)
             for vals in vals_list:
                 vals[0].product_price_update_after_done()

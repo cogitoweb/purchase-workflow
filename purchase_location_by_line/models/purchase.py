@@ -21,7 +21,7 @@ class PurchaseOrderLine(models.Model):
         vals = super(PurchaseOrderLine, self)._first_picking_copy_vals(key,
                                                                        lines)
         for key_element in key:
-            if 'location_dest_id' in key_element.keys():
+            if 'location_dest_id' in list(key_element.keys()):
                 vals['location_dest_id'] = key_element['location_dest_id'].id
         return vals
 

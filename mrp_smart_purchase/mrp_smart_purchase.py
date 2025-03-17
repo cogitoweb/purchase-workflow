@@ -83,7 +83,7 @@ class ProductTemplate(Model):
                 product.id, qty, context=context)
             # Assmuption to sort price is more important than delay
             final_choice = []
-            for supp, price in best_prices_persupplier.items():
+            for supp, price in list(best_prices_persupplier.items()):
                 final_choice.append(
                     self._supplier_to_tuple(cursor, uid, supp, price,
                                             product.id))

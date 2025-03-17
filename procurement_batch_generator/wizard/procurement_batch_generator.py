@@ -114,7 +114,7 @@ class ProcurementBatchGeneratorLine(models.TransientModel):
     def _prepare_procurement_order(self):
         self.ensure_one()
         vals = {
-            'name': u'INT: ' + unicode(self.env.user.login),
+            'name': 'INT: ' + str(self.env.user.login),
             'product_id': self.product_id.id,
             'product_qty': self.procurement_qty,
             'product_uom': self.uom_id.id,

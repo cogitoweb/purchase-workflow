@@ -210,19 +210,19 @@ class purchase_order(Model):
 
         allorders = []
         orders_info = {}
-        for order_key, (order_data, old_ids) in new_orders.iteritems():
+        for order_key, (order_data, old_ids) in new_orders.items():
             # skip merges with only one order
             if len(old_ids) < 2:
                 allorders += (old_ids or [])
                 continue
 
             # cleanup order line data
-            for key, value in order_data['order_line'].iteritems():
+            for key, value in order_data['order_line'].items():
                 del value['uom_factor']
                 value.update(dict(key))
             order_data['order_line'] = [
                 (0, 0, value)
-                for value in order_data['order_line'].itervalues()
+                for value in order_data['order_line'].values()
             ]
 
             # create the new order

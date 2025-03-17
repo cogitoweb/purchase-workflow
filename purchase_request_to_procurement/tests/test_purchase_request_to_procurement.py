@@ -28,7 +28,7 @@ class TestPurchaseRequestToProcurement(TransactionCase):
         }
         line = self.purchase_request_line.create(vals)
         p_order = self.p_order.browse(line._generate_procurement_order())
-        self.assertEquals(
+        self.assertEqual(
             p_order.name,
             purchase_request.name,
             'Should have the same name')
@@ -45,11 +45,11 @@ class TestPurchaseRequestToProcurement(TransactionCase):
         }
         purchase_request.write(vals)
         p_order = self.p_order.browse(line._generate_procurement_order())
-        self.assertEquals(
+        self.assertEqual(
             vals['location_id'],
             p_order.location_id.id,
             'Should be the same')
-        self.assertEquals(
+        self.assertEqual(
             vals['warehouse_id'],
             p_order.warehouse_id.id,
             p_order.warehouse_id.id)
@@ -82,7 +82,7 @@ class TestPurchaseRequestToProcurement(TransactionCase):
         wiz_id = wiz_mod.with_context(ctx).create({})
         res = wiz_id.make_procurement_order()
         procurement_ids = res['domain'][0][2]
-        self.assertEquals(
+        self.assertEqual(
             line.procurement_id.id,
             procurement_ids[0],
             'Should be the same procurement order id')

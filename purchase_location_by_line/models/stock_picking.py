@@ -17,7 +17,7 @@ class StockPicking(models.Model):
         super(StockPicking, self)._update_picking_from_group_key(key)
         for rec in self:
             for key_element in key:
-                if ('location_dest_id' in key_element.keys() and
+                if ('location_dest_id' in list(key_element.keys()) and
                         key_element['location_dest_id']):
                     rec.location_dest_id = key_element['location_dest_id']
         return False

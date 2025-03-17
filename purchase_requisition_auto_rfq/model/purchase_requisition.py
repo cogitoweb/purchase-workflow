@@ -46,21 +46,21 @@ class PurchaseRequisition(models.Model):
                 for seller in sellers:
                     seller_products[seller.name.id].add(line.product_id.id)
             if products_without_supplier:
-                body = _(u'<p><b>RFQ generation</b></p>'
+                body = _('<p><b>RFQ generation</b></p>'
                          '<p>The following products have no '
                          'registered suppliers and are not included in the '
                          'generated RFQs:<ul>%s</ul></p>')
-                body %= ''.join(u'<li>%s</li>' % product.name
+                body %= ''.join('<li>%s</li>' % product.name
                                 for product in products_without_supplier)
                 self.message_post(body=body,
-                                  subject=_(u'RFQ Generation'))
+                                  subject=_('RFQ Generation'))
         lines_to_remove = po_line_obj.browse()
-        for seller_id, sold_products in seller_products.iteritems():
+        for seller_id, sold_products in seller_products.items():
             po_info = self.make_purchase_order(seller_id)
             # make_purchase_order creates po lines for all the products in the
             # requisition. We need to unlink all the created lines for which
             # the supplier is not an official supplier for the product.
-            po_ids = po_info.values()
+            po_ids = list(po_info.values())
             for purchase in po_obj.browse(po_ids):
                 for line in purchase.order_line:
                     if line.product_id.id not in sold_products:

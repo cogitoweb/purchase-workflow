@@ -21,7 +21,7 @@ class PurchaseOrder(models.Model):
                      'have now been confirmed in Purchase Order %s:') % (
             request.name, self.name)
 
-        for line in request_dict.values():
+        for line in list(request_dict.values()):
             if line['request_line'].product_id:
                 display_name = line['request_line'].product_id.display_name
             else:
