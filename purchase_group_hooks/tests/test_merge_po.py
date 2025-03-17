@@ -1,7 +1,7 @@
 from mock import Mock
 
-from openerp.tests.common import BaseCase
-from openerp.osv.orm import browse_record
+from odoo.tests.common import BaseCase
+from odoo.osv.orm import browse_record
 
 
 class TestGroupOrders(BaseCase):

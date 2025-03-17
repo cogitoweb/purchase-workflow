@@ -19,7 +19,7 @@
 #
 #
 import openerp.tests.common as common
-from openerp import fields
+from odoo import fields
 
 
 class test_generate_po(common.TransactionCase):

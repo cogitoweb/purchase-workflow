@@ -18,9 +18,9 @@
 from operator import attrgetter
 from collections import namedtuple
 from datetime import datetime
-from openerp import models, fields, api, _
-from openerp import exceptions
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from odoo import models, fields, api, _
+from odoo import exceptions
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 import openerp.addons.decimal_precision as dp
 
 AGR_PO_STATE = ('confirmed', 'approved',

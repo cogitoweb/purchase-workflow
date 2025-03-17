@@ -18,7 +18,7 @@
 #
 #
 
-from openerp import models, fields, api, osv
+from odoo import models, fields, api, osv
 
 
 class PurchaseOrderClassic(osv.orm.Model):

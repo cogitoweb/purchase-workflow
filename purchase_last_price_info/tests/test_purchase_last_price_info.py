@@ -4,7 +4,7 @@
 ##############################################################################
 
 import openerp.tests.common as common
-from openerp import fields
+from odoo import fields
 
 
 class TestPurchaseLastPriceInfo(common.TransactionCase):

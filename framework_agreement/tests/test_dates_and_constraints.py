@@ -16,8 +16,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from datetime import timedelta, date
-from openerp import fields
-from openerp.tools import mute_logger
+from odoo import fields
+from odoo.tools import mute_logger
 import openerp.tests.common as test_common
 from .common import BaseAgreementTestMixin
 

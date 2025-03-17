@@ -18,9 +18,9 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.osv.orm import Model, browse_record, browse_null
-from openerp.osv import fields
-from openerp import netsvc
+from odoo.osv.orm import Model, browse_record, browse_null
+from odoo.osv import fields
+from odoo import netsvc
 
 
 class procurement_order(Model):

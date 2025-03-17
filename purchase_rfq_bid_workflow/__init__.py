@@ -2,7 +2,7 @@
 from . import model
 from . import wizard
 
-from openerp import SUPERUSER_ID
+from odoo import SUPERUSER_ID
 
 
 def fix_inconsistent_initial_types(cr, registry):

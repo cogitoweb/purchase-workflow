@@ -19,9 +19,9 @@
 #
 ##############################################################################
 
-from openerp.osv.orm import Model
-from openerp import netsvc
-from openerp.osv.orm import browse_record, browse_null
+from odoo.osv.orm import Model
+from odoo import netsvc
+from odoo.osv.orm import browse_record, browse_null
 
 
 class PurchaseOrder(Model):

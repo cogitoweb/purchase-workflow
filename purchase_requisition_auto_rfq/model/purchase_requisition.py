@@ -19,8 +19,8 @@
 ##############################################################################
 from collections import defaultdict
 
-from openerp import models, api
-from openerp.tools.translate import _
+from odoo import models, api
+from odoo.tools.translate import _
 
 
 class PurchaseRequisition(models.Model):

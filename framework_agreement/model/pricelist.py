@@ -19,8 +19,8 @@
 #
 ##############################################################################
 from datetime import datetime
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-from openerp.osv import orm, fields
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
+from odoo.osv import orm, fields
 
 
 # Using new API seem to have side effect on

@@ -18,7 +18,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api, exceptions, _, workflow
+from odoo import models, fields, api, exceptions, _, workflow
 import openerp.addons.decimal_precision as dp
 
 

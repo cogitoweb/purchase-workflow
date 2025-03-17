@@ -17,7 +17,7 @@
 
 from datetime import timedelta, date
 import openerp.tests.common as test_common
-from openerp import exceptions, fields
+from odoo import exceptions, fields
 from .common import BaseAgreementTestMixin
 
 

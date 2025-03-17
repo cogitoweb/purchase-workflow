@@ -18,8 +18,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-from openerp import models, fields
-from openerp.tools import SUPERUSER_ID
+from odoo import models, fields
+from odoo.tools import SUPERUSER_ID
 
 
 class PurchaseRequisition(models.Model):

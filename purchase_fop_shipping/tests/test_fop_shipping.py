@@ -4,8 +4,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import openerp.tests.common as common
-from openerp.exceptions import Warning as UserError
-from openerp import fields
+from odoo.exceptions import Warning as UserError
+from odoo import fields
 
 
 class TestPurchaseOrder(common.TransactionCase):

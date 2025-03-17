@@ -16,7 +16,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from datetime import timedelta, date
-from openerp import fields
+from odoo import fields
 import openerp.tests.common as test_common
 from .common import BaseAgreementTestMixin
 

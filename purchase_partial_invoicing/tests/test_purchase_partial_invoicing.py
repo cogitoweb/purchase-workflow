@@ -20,9 +20,9 @@
 #
 ##############################################################################
 
-from openerp.tests import common
-from openerp import workflow
-from openerp.tools.safe_eval import safe_eval
+from odoo.tests import common
+from odoo import workflow
+from odoo.tools.safe_eval import safe_eval
 
 
 class testPurchasePartialInvoicing(common.TransactionCase):

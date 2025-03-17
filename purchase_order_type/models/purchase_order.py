@@ -19,8 +19,8 @@
 #
 #
 
-from openerp import models, fields, api
-from openerp.addons.purchase.purchase import purchase_order
+from odoo import models, fields, api
+from odoo.addons.purchase.purchase import purchase_order
 
 
 class PurchaseOrder(models.Model):

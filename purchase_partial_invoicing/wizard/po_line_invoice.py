@@ -20,9 +20,9 @@
 ##############################################################################
 
 
-from openerp import models, fields, api, exceptions
+from odoo import models, fields, api, exceptions
 import openerp.addons.decimal_precision as dp
-from openerp.tools.translate import _
+from odoo.tools.translate import _
 
 
 class PurchaseLineInvoice(models.TransientModel):
