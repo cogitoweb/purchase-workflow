@@ -20,7 +20,7 @@
 
 from odoo import models, fields, api, osv
 from odoo.exceptions import except_orm
-import openerp.osv.expression as expression
+from odoo.osv.expression as expression
 from odoo.tools.safe_eval import safe_eval
 from odoo.tools.translate import _
 from odoo.tools.float_utils import float_compare

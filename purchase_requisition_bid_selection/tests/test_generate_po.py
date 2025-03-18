@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-import openerp.tests.common as common
+from odoo.tests.common as common
 from odoo import fields
 
 

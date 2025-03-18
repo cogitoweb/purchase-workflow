@@ -1,4 +1,4 @@
-import openerp.tests.common as common
+from odoo.tests.common as common
 
 
 class test_purchase_requisition_line(common.TransactionCase):

@@ -18,7 +18,7 @@
 from datetime import timedelta, date
 from odoo import fields
 from odoo.tools import mute_logger
-import openerp.tests.common as test_common
+from odoo.tests.common as test_common
 from .common import BaseAgreementTestMixin
 
 

@@ -7,7 +7,7 @@
 from odoo import models, fields, exceptions, api, _
 # NOTE: In v9, this should be `from odoo.tools.misc import formatLang`
 from .format_lang_wrapper import formatLang
-import openerp.addons.decimal_precision as dp
+from odoo.addons import decimal_precision as dp
 
 
 class PurchaseCostDistribution(models.Model):

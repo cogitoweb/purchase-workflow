@@ -19,7 +19,7 @@
 ##############################################################################
 
 from odoo import models, fields, api, exceptions, _, workflow
-import openerp.addons.decimal_precision as dp
+from odoo.addons.decimal_precision as dp
 
 
 class PurchaseLineCancelQuantity(models.TransientModel):

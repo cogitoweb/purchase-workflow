@@ -21,7 +21,7 @@ from datetime import datetime
 from odoo import models, fields, api, _
 from odoo import exceptions
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
-import openerp.addons.decimal_precision as dp
+from odoo.addons.decimal_precision as dp
 
 AGR_PO_STATE = ('confirmed', 'approved',
                 'done', 'except_picking', 'except_invoice')

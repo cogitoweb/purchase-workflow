@@ -3,7 +3,7 @@
 # For copyright and license notices, see __openerp__.py file in root directory
 ##############################################################################
 
-import openerp.tests.common as common
+from odoo.tests.common as common
 from odoo import fields
 
 

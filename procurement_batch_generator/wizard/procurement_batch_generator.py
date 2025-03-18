@@ -21,7 +21,7 @@
 ##############################################################################
 
 from odoo import models, fields, api, _
-import openerp.addons.decimal_precision as dp
+from odoo.addons.decimal_precision as dp
 from odoo.exceptions import Warning
 
 

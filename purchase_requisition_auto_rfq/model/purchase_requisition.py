@@ -55,7 +55,7 @@ class PurchaseRequisition(models.Model):
                 self.message_post(body=body,
                                   subject=_('RFQ Generation'))
         lines_to_remove = po_line_obj.browse()
-        for seller_id, sold_products in seller_products.items():
+        for seller_id, sold_products in list(seller_products.items()):
             po_info = self.make_purchase_order(seller_id)
             # make_purchase_order creates po lines for all the products in the
             # requisition. We need to unlink all the created lines for which

@@ -169,14 +169,14 @@ class PurchaseOrder(Model):
     def _cleanup_merged_line_data(self, grouped_orders):
         """Remove keys from merged lines, and merges of 1 order."""
         result = {}
-        for order_key, (order_data, old_ids) in grouped_orders.items():
+        for order_key, (order_data, old_ids) in list(grouped_orders.items()):
             if len(old_ids) > 1:
-                for key, value in order_data['order_line'].items():
+                for key, value in list(order_data['order_line'].items()):
                     del value['uom_factor']
                     value.update(dict(key))
                 order_data['order_line'] = [
                     (0, 0, value)
-                    for value in order_data['order_line'].values()
+                    for value in list(order_data['order_line'].values())
                 ]
                 result[order_key] = (order_data, old_ids)
         return result

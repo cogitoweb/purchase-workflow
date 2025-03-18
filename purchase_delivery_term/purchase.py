@@ -22,7 +22,7 @@
 
 from odoo.osv import fields, orm
 from odoo.tools.translate import _
-import openerp.addons.decimal_precision as dp
+from odoo.addons.decimal_precision as dp
 from datetime import datetime, timedelta
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
