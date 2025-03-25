@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from mock import Mock
 
 from odoo.tests.common import BaseCase

@@ -44,7 +44,8 @@ class PurchaseOrderLine(models.Model):
     @api.multi
     def _create_stock_moves(self, picking):
         res = super(PurchaseOrderLine, self)._create_stock_moves(picking)
-        for line in self:
+        for move in res:
+            line = move.purchase_line_id
             default_picking_location_id = \
                 line.order_id._get_destination_location()
             default_picking_location = self.env['stock.location'].browse(
@@ -52,6 +53,6 @@ class PurchaseOrderLine(models.Model):
 
             location = line.location_dest_id or default_picking_location
             if location:
-                line.move_ids.filtered(lambda m: m.state != 'done').write(
+                move.write(
                     {'location_dest_id': location.id})
         return res
