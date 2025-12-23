@@ -45,8 +45,8 @@ class PurchaseOrderLine(models.Model):
         moves = self.env['stock.move']
         # Group the order lines by group key
         order_lines = sorted(self,
-                             key=lambda l: self._get_group_keys(
-                                 l.order_id, l, picking=picking))
+                             key=lambda l: len(self._get_group_keys(
+                                 l.order_id, l, picking=picking)))
         date_groups = groupby(order_lines, lambda l: self._get_group_keys(
             l.order_id, l, picking=picking))
 
